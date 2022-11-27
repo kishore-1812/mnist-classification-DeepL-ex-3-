@@ -42,7 +42,7 @@ Plot the performance plot
 Evaluate the model with the testing data
 
 ## PROGRAM
-
+``` python
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -76,7 +76,6 @@ y_train_onehot[500]
 X_train_scaled = X_train_scaled.reshape(-1,28,28,1)
 X_test_scaled = X_test_scaled.reshape(-1,28,28,1)
 model = keras.Sequential()
-# Write your code here
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 model.add(layers.MaxPooling2D((2, 2)))
 model.add(layers.Conv2D(64, (3, 3), activation='relu'))
@@ -112,6 +111,8 @@ img_28_gray_inverted = 255.0-img_28_gray
 img_28_gray_inverted_scaled = img_28_gray_inverted.numpy()/255.0
 x_single_prediction = np.argmax(model.predict(img_28_gray_inverted_scaled.reshape(1,28,28,1)),axis=1)
 print(x_single_prediction)
+```
+
 ## OUTPUT
 
 ### Training Loss, Validation Loss Vs Iteration Plot
