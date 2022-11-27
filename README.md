@@ -85,12 +85,8 @@ model.add(layers.Dense(110, activation='relu'))
 model.add(layers.Dropout(0.2))
 model.add(layers.Dense(10, activation='softmax'))
 model.summary()
-model.compile(loss='categorical_crossentropy',
-              optimizer='adam',
-              metrics=['accuracy'])
-model.fit(X_train_scaled ,y_train_onehot, epochs=5,
-          batch_size=64, 
-          validation_data=(X_test_scaled,y_test_onehot))
+model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+model.fit(X_train_scaled ,y_train_onehot, epochs=5,batch_size=64,validation_data=(X_test_scaled,y_test_onehot))
 metrics = pd.DataFrame(model.history.history)
 metrics[['accuracy','val_accuracy']].plot()
 metrics[['loss','val_loss']].plot()
